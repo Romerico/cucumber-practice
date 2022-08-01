@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="8.564">
+    <testcase classname="Simple Login" name="Login with valid credentials" time="8.412">
+        <system-out>
+            <![CDATA[Given I launch chrome browser...............................................passed
+When I open DecemberBoys login page.........................................passed
+And pass valid credentials..................................................passed
+And click login.............................................................passed
+Then I verify that I'm logged in............................................passed
+And close browser...........................................................passed
+]]>
+        </system-out>
+    </testcase>
+</testsuite>

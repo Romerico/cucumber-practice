@@ -26,14 +26,17 @@ public class DecemberBoysSteps {
     @Then("I verify that the logo is present on a homepage")
     public void i_verify_that_the_logo_is_present_on_a_homepage() {
 
-        boolean status = driver.findElement(By.xpath("//img[@title=\"December Boys\"]")).isDisplayed();
-        Assert.assertEquals(true, status);
-        if (status == true) {
-            System.out.println("you can locate the logo by sane xpath");
-        } else {
-            System.out.println("the logo is absent");
+//        boolean status = driver.findElement(By.xpath("//img[@title=\"December Boys\"]")).isDisplayed();
+//        Assert.assertEquals(true, status);
+//        if (status == true) {
+//            System.out.println("you can locate the logo by sane xpath");
+//        } else {
+//            System.out.println("the logo is absent");
+//        }
+
+            Assert.assertTrue("The logo is absent", driver.findElement(By.xpath("//img[@title=\"December Boys\"]")).isDisplayed());
         }
-    }
+
 
     @Then("close browser")
     public void close_browser() {
@@ -52,9 +55,14 @@ public class DecemberBoysSteps {
     public void pass_valid_credentials() {
         driver.findElement(By.xpath("//input[@name='login-username']")).sendKeys("erg@rsgef.com");
         driver.findElement(By.xpath("//input[@name='login-password']")).sendKeys("123456789");
-
-
     }
+
+    @And("pass username {string} and password {string}")
+    public void pass_username_and_password(String email, String password) {
+        driver.findElement(By.xpath("//input[@name='login-username']")).sendKeys(email);
+        driver.findElement(By.xpath("//input[@name='login-password']")).sendKeys(password);
+    }
+
 
     @And("click login")
     public void click_login() {
