@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions
         (features = "C:\\Users\\Roman Yarmolenko\\IdeaProjects\\BDDCucumberTest\\Features\\DecemberBoys.feature",
         plugin ={"pretty", "html:html-output", "json:json-output", "junit:junit_xml_output/cucum.xml"},
+                dryRun = false,
         glue = "StepDefinitions")
 public class TestRunnerDecemberBoys
 {

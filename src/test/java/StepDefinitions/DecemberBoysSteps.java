@@ -1,10 +1,16 @@
 package StepDefinitions;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.lang.reflect.Type;
+import java.util.List;
+
+import static javax.swing.UIManager.get;
 
 public class DecemberBoysSteps {
     WebDriver driver;
@@ -68,6 +74,14 @@ public class DecemberBoysSteps {
     public void click_login() {
         driver.findElement(By.xpath("//button[@name='login_submit']")).click();
 
+    }
+
+    @And("pass username and password from Data Table")
+    public void pass_username_and_password_from_data_table(DataTable credentials) {
+       List<List<String>> data =  credentials.asLists((Type) String.class);
+
+        driver.findElement(By.xpath("//input[@name='login-username']")).sendKeys(data.get(0).get(0));
+        driver.findElement(By.xpath("//input[@name='login-password']")).sendKeys(data.get(0).get(1));
     }
 
     @Then("I verify that I'm logged in")
